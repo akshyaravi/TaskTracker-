@@ -2,7 +2,13 @@
 
 A full-stack Task Management application featuring a Spring Boot REST API and a React (Vite) frontend. This project implements a relational database schema (Projects and Tasks) and allows users to perform full CRUD operations on tasks.
 
-## 🚀 Getting Started
+## 🌍 Live Demo
+- **Frontend (Vercel):** [Insert your Vercel URL here]
+- **Backend API (Render):** [https://tasktracker-backend-27wh.onrender.com](https://tasktracker-backend-27wh.onrender.com)
+- **Swagger Documentation:** [https://tasktracker-backend-27wh.onrender.com/swagger-ui.html](https://tasktracker-backend-27wh.onrender.com/swagger-ui.html)
+- **Database (Railway):** MySQL hosted on Railway
+
+## 🚀 Getting Started (Local Development)
 
 ### Prerequisites
 - **Java 21+**
@@ -16,12 +22,12 @@ A full-stack Task Management application featuring a Spring Boot REST API and a 
    ```sql
    CREATE DATABASE Taskdb;
    ```
-3. Update the database credentials in `TaskTracker_Backend/src/main/resources/application.properties` to match your local MySQL username and password.
+3. Update the database credentials in `TaskTracker_Backend/TaskTracker_Backend/src/main/resources/application.properties` to match your local MySQL username and password.
 
 ### 2. Running the Backend (Spring Boot)
 1. Navigate to the backend directory:
    ```bash
-   cd TaskTracker_Backend
+   cd TaskTracker_Backend/TaskTracker_Backend
    ```
 2. Run the application using Maven:
    ```bash
@@ -48,8 +54,7 @@ A full-stack Task Management application featuring a Spring Boot REST API and a 
 
 ## 📡 API Endpoints
 
-The API is fully documented using Swagger/OpenAPI. Once the backend is running, you can access the Swagger UI at:
-`http://localhost:8080/swagger-ui.html`
+The API is fully documented using Swagger/OpenAPI. Once the backend is running, you can access the Swagger UI at `/swagger-ui.html`.
 
 ### Tasks
 - `GET /api/tasks` - Get all tasks (supports pagination and filtering by status/priority, sorted by due date)
@@ -73,12 +78,11 @@ The API is fully documented using Swagger/OpenAPI. Once the backend is running, 
 - **Frontend:** Built using React and Vite for fast development. Uses `axios` for API calls and `react-router-dom` for routing. The UI is designed to surface API validation errors clearly to the user.
 
 ### Trade-offs Made
-- **Local MySQL vs Docker:** Currently requires a local MySQL installation. A `docker-compose.yml` would simplify setup but was omitted for simplicity in local development.
+- **Local MySQL vs Docker:** Currently requires a local MySQL installation for local development. A full local `docker-compose.yml` would simplify setup but was omitted for simplicity in local development, though a `Dockerfile` was added for Render deployment.
 - **Security:** No authentication (JWT) is implemented. The API is currently open for testing purposes.
 
 ### Future Improvements for Production
 - **Authentication & Authorization:** Implement JWT-based auth with Spring Security.
-- **Dockerization:** Add a Dockerfile and `docker-compose.yml` to spin up the DB, API, and Frontend seamlessly.
 - **Caching & Indexes:** Add a database index on `status` and `priority` to optimize filtering queries. Add Redis caching for frequently accessed data.
 - **CI/CD:** Add GitHub Actions to automatically build and run the integration tests on every push.
 
@@ -91,5 +95,6 @@ During the development of this project, AI assistants (such as ChatGPT and Claud
 - Generating SQL schema designs and JPA entity relationships.
 - Drafting integration test templates.
 - Writing styling for React components.
+- Providing deployment configurations (Dockerfile, vercel.json) for hosting on Render, Railway, and Vercel.
 
 *All generated code was reviewed, modified, and tested to ensure it meets the project requirements and correctly implements the business logic.*

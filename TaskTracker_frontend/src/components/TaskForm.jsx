@@ -135,7 +135,7 @@ function TaskForm() {
           <label htmlFor="status">Status</label>
           <select id="status" name="status" value={formData.status} onChange={handleChange}>
             <option value="TODO">To Do</option>
-            <option value="DOING">In Progress</option>
+            <option value="IN_PROGRESS">In Progress</option>
             <option value="DONE">Done</option>
           </select>
         </div>

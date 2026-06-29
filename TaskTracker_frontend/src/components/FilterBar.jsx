@@ -18,9 +18,9 @@ function FilterBar({ filters, onFilterChange, onReset }) {
       <div className="filter-group">
         <label htmlFor="statusFilter">Status:</label>
         <select id="statusFilter" value={filters.status} onChange={handleStatusChange}>
-          <option value="ALL">All</option>
+          <option value="">All Status</option>
           <option value="TODO">To Do</option>
-          <option value="DOING">Doing</option>
+          <option value="IN_PROGRESS">Doing</option>
           <option value="DONE">Done</option>
         </select>
       </div>

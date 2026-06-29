@@ -31,9 +31,22 @@ const taskService = {
     }
   },
 
+  formatPayload: (task) => {
+    const payload = { ...task };
+    // Date is sent as YYYY-MM-DD which matches LocalDate on backend
+    // Send both flat ID and nested object to satisfy different backend relationship mappings
+    if (payload.projectId) {
+      const idNum = parseInt(payload.projectId, 10);
+      payload.projectId = idNum;
+      payload.project = { id: idNum };
+    }
+    return payload;
+  },
+
   createTask: async (task) => {
     try {
-      const response = await taskApi.post('/tasks', task);
+      const payload = taskService.formatPayload(task);
+      const response = await taskApi.post('/tasks', payload);
       return response.data;
     } catch (error) {
       console.error('Error creating task in taskService:', error);
@@ -43,7 +56,8 @@ const taskService = {
 
   updateTask: async (id, task) => {
     try {
-      const response = await taskApi.put(`/tasks/${id}`, task);
+      const payload = taskService.formatPayload(task);
+      const response = await taskApi.put(`/tasks/${id}`, payload);
       return response.data;
     } catch (error) {
       console.error(`Error updating task ${id} in taskService:`, error);

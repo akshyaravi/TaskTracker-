@@ -83,7 +83,7 @@ The API is fully documented using Swagger/OpenAPI. Once the backend is running, 
 
 ### Future Improvements for Production
 - **Authentication & Authorization:** Implement JWT-based auth with Spring Security.
-- **Caching & Indexes:** Add a database index on `status` and `priority` to optimize filtering queries. Add Redis caching for frequently accessed data.
+- **Caching:** Add Redis caching for frequently accessed data. (Note: Database indexes on `status` and `due_date` have already been implemented).
 - **CI/CD:** Add GitHub Actions to automatically build and run the integration tests on every push.
 
 ---
